@@ -1,0 +1,27 @@
+
+
+.full-width{
+    width: 30%;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+}
+
+.search-button {
+    margin-left: 10px; /* Ajusta el espacio entre el campo de entrada y el botón */
+}
+
+table {
+    width: 100%;
+}
+  
+.mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td, th {
+    width: 25%;
+}

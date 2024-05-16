@@ -1,0 +1,18 @@
+
+<form class="registration-form" fxLayout="column">
+    <h2>Editar Usuario</h2>
+      <label class="mt-2">Ingrese usuario:</label>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nombre del Usuario" [formControl]="usuario">
+      </mat-form-field>
+
+      <label class="mt-2">Ingrese password:</label>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nombre del Password" [formControl]="password">
+      </mat-form-field>
+     
+      <button mat-raised-button class="mt-2" color="primary" (click)="actualizar()" [disabled]="usuario.invalid">Modificar</button>
+      
+  </form>
+  
+  
