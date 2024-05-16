@@ -1,46 +1,44 @@
 import { Component, ViewChild} from '@angular/core';
- 
-import { Clusuario } from '../../models/clusuario';
-import { SerusuarioService } from '../../services/serusuario.service';
-
+import { Producto } from '../../models/tarea13.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { MatEliminarComponent } from 'src/app/components/mat-eliminar/mat-eliminar.component';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
-import { CrearUsuarioComponent } from './crear-usuario/crear-usuario.component';
+import { CrearProductoComponent } from './crear-producto/crear-producto.component';
+import { EditarProductoComponent } from './editar-producto/editar-producto.component';
+import { ProductoService } from 'src/app/services/producto.service';
+
  
 @Component({
-  selector: 'app-listausuario',
-  templateUrl: './listausuario.component.html',
-  styleUrls: ['./listausuario.component.css']
+  selector: 'app-listaProducto',
+  templateUrl: './listaProducto.component.html',
+  styleUrls: ['./listaProducto.component.css']
 })
-export class ListausuarioComponent {
+export class ListaProductoComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  title = 'LISTA DE USUARIOS';
-
- 
-  clusuario = null as any;
-  dataSource = new MatTableDataSource<Clusuario>([]);
-  displayedColumns: string[] = ['id', 'usuario', 'password', 'acciones'];
+  title = 'LISTA DE PRODUCTO';
+  producto!: Producto[];
+  
+  dataSource = new MatTableDataSource<Producto>([]);
+  displayedColumns: string[] = ['id_producto', 'nombre', 'marca', 'precio', 'stock', 'id_categoria', 'acciones'];
 
   constructor(
-    private serusuarioservice: SerusuarioService,
+    private productoService: ProductoService,
     private dialog: MatDialog
   ) {
     this.mostrarModelo();
    }
 
    async mostrarModelo(){
-    this.serusuarioservice.getAll().subscribe(
+    this.productoService.getAll().subscribe(
       result => {
       console.log(result)
-      this.clusuario = result
-      this.dataSource = new MatTableDataSource(this.clusuario);
+      this.producto = result
+      this.dataSource = new MatTableDataSource(this.producto);
 
-      this.paginator.length = this.clusuario.length
+      this.paginator.length = this.producto.length
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       },error => {
@@ -59,8 +57,8 @@ export class ListausuarioComponent {
     }
   }
 
-  createUser(){
-    const dialogRef = this.dialog.open(CrearUsuarioComponent, {
+  createProducto(){
+    const dialogRef = this.dialog.open(CrearProductoComponent, {
       width: '50vw',
       height: '60vh'
     });
@@ -70,8 +68,8 @@ export class ListausuarioComponent {
     });
   }
 
-  updateUser(usuario: Clusuario){
-    const dialogRef = this.dialog.open(EditarUsuarioComponent, {
+  updateProducto(usuario: Producto){
+    const dialogRef = this.dialog.open(EditarProductoComponent, {
       data: usuario,
       width: '50vw',
       height: '60vh'
@@ -82,12 +80,12 @@ export class ListausuarioComponent {
     });
   }
 
-  deleteUser(id: number): void{
+  deleteProducto(id: number): void{
     const dialogRef = this.dialog.open(MatEliminarComponent);
-    
+    console.log(id)
     dialogRef.afterClosed().subscribe((result: boolean) => {
       if (result) {
-        this.serusuarioservice.deleteUser(id).subscribe(
+        this.productoService.deleteProducto(id).subscribe(
           result => {
             const message = result;
             alert(message);

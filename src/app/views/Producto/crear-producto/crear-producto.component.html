@@ -1,0 +1,38 @@
+
+<form class="registration-form" fxLayout="column" [formGroup]="registerForm">
+    <h2>Crear Producto</h2>
+    <label class="mt-2">Ingrese nombre:</label>
+    <mat-form-field class="full-width mt-2">
+    <input matInput placeholder="Nombre del Producto" formControlName="nombre">
+    </mat-form-field>
+
+    <label class="mt-2">Ingrese marca:</label>
+    <mat-form-field class="full-width mt-2">
+    <input matInput placeholder="Marca del Producto" formControlName="marca">
+    </mat-form-field>
+
+    <label class="mt-2">Ingrese precio:</label>
+    <mat-form-field class="full-width mt-2">
+    <input matInput placeholder="Precio del Producto" formControlName="precio">
+    </mat-form-field>
+
+    <label class="mt-2">Ingrese stock:</label>
+    <mat-form-field class="full-width mt-2">
+    <input matInput placeholder="Stock del Producto" formControlName="stock">
+    </mat-form-field>
+
+    <label class="mt-2">Elije la Categoria del Producto:</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Seleccionar Categoria</mat-label>
+        <mat-select formControlName="id_categoria">
+          <ng-container *ngFor="let categoria of categorias">
+            <mat-option [value]="categoria">{{ categoria.descripcion }}</mat-option> 
+          </ng-container>
+        </mat-select>
+      </mat-form-field>
+    
+    <button mat-raised-button class="mt-2" color="primary" (click)="crear()" [disabled]="registerForm.invalid">Crear</button>
+    
+</form>
+  
+  

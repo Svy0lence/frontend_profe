@@ -3,13 +3,11 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListausuarioComponent } from './views/Usuario/listausuario.component';
+
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CrearUsuarioComponent } from './views/Usuario/crear-usuario/crear-usuario.component';
-import { EditarUsuarioComponent } from './views/Usuario/editar-usuario/editar-usuario.component';
-import { MatEliminarComponent } from './components/mat-eliminar/mat-eliminar.component';
+
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -23,12 +21,31 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSortModule } from '@angular/material/sort';
 import {MatTabsModule} from '@angular/material/tabs';
 
+
+import { MatEliminarComponent } from './components/mat-eliminar/mat-eliminar.component';
+
+import { ListaCategoriaComponent } from './views/Categoria/listacategoria.component';
+import { CrearCategoriaComponent } from './views/Categoria/crear-categoria/crear-categoria.component';
+import { EditarCategoriaComponent } from './views/Categoria/editar-categoria/editar-categoria.component';
+
+import { ListaProductoComponent } from './views/Producto/listaProducto.component';
+import { CrearProductoComponent } from './views/Producto/crear-producto/crear-producto.component';
+import { EditarProductoComponent } from './views/Producto/editar-producto/editar-producto.component';
+import { MatSelectModule } from '@angular/material/select';
+
 @NgModule({
   declarations: [
     AppComponent,
-    ListausuarioComponent,
-    CrearUsuarioComponent,
-    EditarUsuarioComponent,
+    //producto
+    ListaProductoComponent,
+    CrearProductoComponent,
+    EditarProductoComponent,
+    
+    //categoria
+    ListaCategoriaComponent,
+    CrearCategoriaComponent,
+    EditarCategoriaComponent,
+
     MatEliminarComponent,
     
   ],
@@ -48,7 +65,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatInputModule,
     MatSortModule,
     MatTabsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

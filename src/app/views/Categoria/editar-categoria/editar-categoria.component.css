@@ -1,0 +1,26 @@
+.registration-form {
+    padding: 20px;
+  }
+  
+  .registration-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .mt-2 {
+    margin-top: 10px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    margin-left: 20px; /* Sangría para los campos de entrada */
+  }
+  
+  button {
+    margin-top: 20px;
+    margin-left: 20px; /* Sangría para el botón */
+  }
+  
