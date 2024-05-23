@@ -32,6 +32,8 @@ import { ListaProductoComponent } from './views/Producto/listaProducto.component
 import { CrearProductoComponent } from './views/Producto/crear-producto/crear-producto.component';
 import { EditarProductoComponent } from './views/Producto/editar-producto/editar-producto.component';
 import { MatSelectModule } from '@angular/material/select';
+import { LoginComponent } from './views/Login/login/login.component';
+import { ViewsComponent } from './views/views/views.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { MatSelectModule } from '@angular/material/select';
     EditarCategoriaComponent,
 
     MatEliminarComponent,
+     LoginComponent,
+     ViewsComponent,
     
   ],
   imports: [

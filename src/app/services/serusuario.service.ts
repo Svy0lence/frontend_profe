@@ -19,23 +19,27 @@ export class SerusuarioService {
  
   // LISTAR USUARIO
   getAll(): Observable<Clusuario[]> {
-    return this.http.get<Clusuario[]>(this.url+ '/listar');
+    return this.http.get<Clusuario[]>(this.url+ 'res_usu/listar');
   }
 
   getUserById(id: number){
-    return this.http.get<Clusuario[]>(this.url+ `/buscar/${id}`);
+    return this.http.get<Clusuario[]>(this.url+ `res_usu/buscar/${id}`);
+  }
+
+  getUserByUser(user: Clusuario){
+    return this.http.post<boolean>(this.url+ `res_usu/buscar/user`, user);
   }
 
   createUser(usuario:Clusuario): Observable<string> {
-    return this.http.post<string>(this.url+ '/insertar', usuario);
+    return this.http.post<string>(this.url+ 'res_usu/insertar', usuario);
   }
 
   updateUser(id: number,usuario:Clusuario): Observable<string> {
-    return this.http.put<string>(this.url+ `/modificar/${id}`, usuario);
+    return this.http.put<string>(this.url+ `res_usu/modificar/${id}`, usuario);
   }
 
   deleteUser(id: number): Observable<string> {
-    return this.http.delete<string>(this.url+ `/eliminar/${id}`);
+    return this.http.delete<string>(this.url+ `res_usu/eliminar/${id}`);
   }
  
 }

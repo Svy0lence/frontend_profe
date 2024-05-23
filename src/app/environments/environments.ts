@@ -1,6 +1,6 @@
 export const environment = {
     production: false,
-    BACKEND_URL: 'https://a1bc-38-199-5-23.ngrok-free.app/api/v1/',
+    BACKEND_URL: 'http://localhost:9898/api/v1/',
 }
 
 export const vTexto = {
@@ -18,8 +18,6 @@ export const vTexto = {
         userName: 'Jordan Chuquimajo',
         userProfile: "Perfil",
         logout: "Cerrar Sesión"
-
-
     }
 }
 

@@ -39,13 +39,17 @@ export class CrearProductoComponent {
   }
 
   crear(){
+
+    const precioString: string = this.registerForm.get('precio')?.value || '';
+    const stockString: string = this.registerForm.get('stock')?.value || '';
+
     const productoDetails: any = {
       nombre: this.registerForm.get('nombre')?.value,
-      marca: this.registerForm.get('nombre')?.value,
-      precio: this.registerForm.get('precio')?.value,
-      stock: this.registerForm.get('stock')?.value,
+      marca: this.registerForm.get('marca')?.value,
+      precio: parseFloat(precioString),
+      stock: parseInt(stockString),
       categoria: this.registerForm.get('id_categoria')?.value,
-    } 
+    }
     
     console.log(productoDetails)
     this.productoService.createProducto(productoDetails).subscribe(
